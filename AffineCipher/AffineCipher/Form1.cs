@@ -15,9 +15,9 @@ namespace AffineCipher
         public Form1()
         {
             InitializeComponent();
-            AffineAlgorithm al = new AffineAlgorithm(new Message("AHOJ IVKA A TONOO"), new Key(110));
-            al.Encrypt();
-            al.Decrypt();
+            ShiftCipherAlgorithm al = new ShiftCipherAlgorithm(new Message("AHOJ IVKA A TONOO"), new Key(12));
+            //al.Encrypt();
+            al.Decrypt("DATG");
         }
     }
 }
