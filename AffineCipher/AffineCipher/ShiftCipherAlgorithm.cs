@@ -8,18 +8,18 @@ namespace AffineCipher
 {
     public class ShiftCipherAlgorithm
     {
-        private Message _message;
-        private List<int> _convertedMessage;
-        private List<int> _encryptedMessage;
-        private Key _key;
+        private static Message _message;
+        private static List<int> _convertedMessage;
+        private static List<int> _encryptedMessage;
+        private static Key _key;
         public ShiftCipherAlgorithm(Message message, Key key)
         {
-            this._message = message;
-            this._key = key;
+            ShiftCipherAlgorithm._message = message;
+            ShiftCipherAlgorithm._key = key;
             _convertedMessage = new List<int>();
             _encryptedMessage = new List<int>();
         }
-        public void Encrypt()
+        public static void Encrypt()
         {
             ConvertMessageToAscii();
 
@@ -34,7 +34,7 @@ namespace AffineCipher
             Console.WriteLine(encryptedString);
         }
 
-        public void ConvertMessageToAscii()
+        public static void ConvertMessageToAscii()
         {
             // kazde pismeno na cislo
             int n = 0;
@@ -50,7 +50,7 @@ namespace AffineCipher
         }
 
         /*
-         * Workd for upper case, lower case and spaces
+         * Works for upper case, lower case and spaces
          */
         public static int ConvertCharToAscii(char letter)
         {
@@ -66,6 +66,37 @@ namespace AffineCipher
             }
             // for space
             return 26;
+        }
+
+        public static char ConvertAsciiToChar(int number)
+        {
+            if (number >= 0 && number <= 25)
+            {
+                return (char)(number + 'A');
+            }
+            return ' ';
+        }
+
+        public static int FindMultiplicativeInversion(int a)
+        {
+            for (int i = 0; i < 27; i++)
+            {
+                if( AffineEncryptWithMultiplication(a,i) == 1 )
+                {
+                    return i;
+                }
+            }
+            return 0;
+        }
+
+        public static int AffineEncryptWithAddition(int a, int b)
+        {
+            return (a + b) % 27;
+        }
+
+        public static int AffineEncryptWithMultiplication(int a, int b)
+        {
+            return (a * b) % 27;
         }
 
         public void Decrypt()

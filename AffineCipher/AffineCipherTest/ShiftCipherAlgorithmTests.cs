@@ -34,19 +34,30 @@ namespace AffineCipherTests
             got = ShiftCipherAlgorithm.ConvertCharToAscii(letter);
             Assert.AreEqual(expected, got);
         }
-    }
-}
 
-namespace AffineCipherTest
-{
-    [TestClass()]
-    public class ShiftCipherAlgorithmTests
-    {
         [TestMethod()]
         public void ConvertToAsciiTest()
         {
 
-            
+
+        }
+
+        [TestMethod()]
+        public void AffineEncryptWithAdditionTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void AffineEncryptWithMultiplicationTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void FindMultiplicativeInversionTest()
+        {
+            Assert.Fail();
         }
     }
 }
