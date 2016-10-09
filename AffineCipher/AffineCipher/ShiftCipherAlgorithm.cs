@@ -27,7 +27,7 @@ namespace AffineCipher
             string encryptedString = "";
             foreach (char c in _convertedMessage)
             {
-                int s = ((int) c + _key.Value)%26;
+                int s = AffineEncryptWithMultiplication(c, _key.Value);
                 _encryptedMessage.Add(s);
                 encryptedString += s;
             }
@@ -107,16 +107,7 @@ namespace AffineCipher
             {
                 foreach (var number in _encryptedMessage)
                 {
-                    /*
-                     * if (((number + key) % 26 + 65) == 91)
-                    {
-                        c = ' ';
-                    }
-                    else
-                    */
-                    {
-                        c = (char) ((number + key)%26 + 65);
-                    }
+                    
                     PossibleMessage += c;
                 }
                 Console.WriteLine("Key: " + (26-key) + " " + PossibleMessage);
@@ -124,26 +115,19 @@ namespace AffineCipher
             }
         }
 
-        public void Decrypt(string message)
+        public static void Decrypt(string message)
         {
-            string PossibleMessage = "";
-            char c = ' ';
+            string possibleMessage = "";
+            int c;
             for (int key = 0; key < 26; key++)
             {
                 foreach (var number in message)
                 {
-                    /*if (((number + key) % 27 + 65) == 91)
-                    {
-                        c = ' ';
-                    }
-                    else*/
-                    {
-                        c = (char)((number + key) % 26 + 65);
-                    }
-                    PossibleMessage += c;
+                    c = AffineEncryptWithMultiplication(number, FindMultiplicativeInversion(key));
+                    possibleMessage += ConvertAsciiToChar(c);
                 }
-                Console.WriteLine("Key: " + (26 - key) + " " + PossibleMessage);
-                PossibleMessage = "";
+                Console.WriteLine("Key: " + key + " " + possibleMessage);
+                possibleMessage = "";
             }
         }
     }
