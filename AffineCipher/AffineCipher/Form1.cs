@@ -25,9 +25,13 @@ namespace AffineCipher
             inverse = ShiftCipherAlgorithm.FindMultiplicativeInversion(21);
             Console.WriteLine("Inversed element to V={0} is {1}", 21, inverse);
             */
-            AffineCipher.Encrypt("VYRIESIL SOM LAHKU ULOHU", 8,5);
-            AffineCipher.Decrypt("LIGPKOPMYOJUYMFHEDYDMJHD", 17,5);
+
+            //AffineCipher.Encrypt("VYRIESIL SOM LAHKU ULOHU", 8,5);
+            //AffineCipher.Decrypt("LIGPKOPMYOJUYMFHEDYDMJHD", 17,5);
             //AffineCipher.Decrypt("LIYGTOGDPOAUPDFQNVPVDAQV");
+
+            VigenereCipher.Encrypt("KULTURNIATASEJESPION", "PES");
+            VigenereCipher.Decrypt("ZYDIYJCMSIEKTNWHTADR", "PES");
         }
     }
 }
