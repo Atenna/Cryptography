@@ -103,32 +103,18 @@ namespace AffineCipher
         {
             string PossibleMessage = "";
             char c = ' ';
-            for (int key = 0; key < 26; key++)
+            for (int a = 0; a < 26; a++)
             {
-                foreach (var number in _encryptedMessage)
+                for (int b = 0; b < 26; b++)
                 {
                     
-                    PossibleMessage += c;
                 }
-                Console.WriteLine("Key: " + (26-key) + " " + PossibleMessage);
-                PossibleMessage = "";
             }
         }
 
         public static void Decrypt(string message)
         {
-            string possibleMessage = "";
-            int c;
-            for (int key = 0; key < 26; key++)
-            {
-                foreach (var number in message)
-                {
-                    c = AffineEncryptWithMultiplication(number, FindMultiplicativeInversion(key));
-                    possibleMessage += ConvertAsciiToChar(c);
-                }
-                Console.WriteLine("Key: " + key + " " + possibleMessage);
-                possibleMessage = "";
-            }
+            
         }
     }
 }

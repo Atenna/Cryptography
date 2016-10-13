@@ -55,9 +55,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AffineCipher\AffineCipher.csproj">
+    <ProjectReference Include="..\AffineCipher\CryptographyAlgorithms.csproj">
       <Project>{d22c26eb-2511-4c04-ac4d-f6cff7f967da}</Project>
-      <Name>AffineCipher</Name>
+      <Name>CryptographyAlgorithms</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
